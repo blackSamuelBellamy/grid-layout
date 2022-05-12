@@ -144,6 +144,8 @@ h2 {
     height: 100%;
     gap: 50px;
     background: linear-gradient(to right top, #1dd7e7, #00bef4, #00a2ff, #0081ff, #1256eb);
+    padding-bottom: 60px;
+    padding-top: 20px; 
 
 
 
@@ -284,5 +286,7 @@ footer p {
     .menu:hover~ .toggle {
         display: flex;
     }
+
+    
 
 }
