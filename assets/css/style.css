@@ -3,6 +3,7 @@
     margin: 0;
     box-sizing: border-box;
 }
+
 body {
     background-color: #E7E7E7;
 }
@@ -10,10 +11,10 @@ body {
 .container {
     display: grid;
     grid-template-areas: "header header header"
-                         "sideBar gallery gallery"
-                         "sidebar gallery gallery"
-                         "sidebar gallery gallery"
-                         "footer footer footer"
+        "sideBar gallery gallery"
+        "sidebar gallery gallery"
+        "sidebar gallery gallery"
+        "footer footer footer"
     ;
     width: 100%;
     height: auto;
@@ -27,13 +28,13 @@ header {
     background: #25527B;
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: #FFF;
-     height: 10vh;
+    height: 10vh;
 }
 
 .menu {
     display: none;
     flex-direction: column;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
     align-items: center;
     position: absolute;
     left: 5%;
@@ -42,25 +43,34 @@ header {
     border: 4px solid #FFF;
     border-radius: 7px;
     transition: .7s;
-    
+
 }
 
-.toggle{
-    display: none;
+.toggle {
     flex-direction: column;
     background-color: #333;
     position: absolute;
-    width: 7rem;
-    transition: .7s;
+    top: 100%;
+    left: 4%;
+    width: 10rem;
+    display: none;
+    height: auto;
+
+}
+
+.toggle ul {
+    list-style: none;
+
 }
 
 .toggle li {
     padding: 10px 0;
     border: 2px solid #FFF;
+    letter-spacing: 2px;
     text-align: center;
     color: #FFF;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    transition: .7s;
+
 }
 
 .menu:hover {
@@ -76,43 +86,65 @@ header {
 }
 
 .line {
-   width: 27px;
-   height: 3px;
-   background: #FFF; 
-   
+    width: 27px;
+    height: 3px;
+    background: #FFF;
+
 }
 
 .sideBar {
     grid-area: sideBar;
     background-color: #E7E7E7;
     min-height: auto;
-    width: 20vw;
+    width: 15vw;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
+    height: 30vh;
 }
 
 h2 {
     margin: 5% 0;
+    font-family: cursive;
+    letter-spacing: 2px;
+
 }
 
-ul {
+.sideBar ul {
+    position: absolute;
+    top: 50%;
     display: flex;
     flex-direction: column;
     list-style: none;
+
+
 }
 
-.gallery {
+.sideBar ul li {
+    padding: 10px 0;
+    border-bottom: 3px solid #000;
+    font-size: 1.2em;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: .7s;
+}
+
+.sideBar ul li:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.main {
     display: grid;
     grid-area: gallery;
     grid-template-columns: auto auto auto;
     justify-content: center;
-    align-items:flex-start;
-    width: 80vw;
+    align-items: flex-start;
+    width: 85vw;
     height: 100%;
     gap: 50px;
     background: linear-gradient(to right top, #1dd7e7, #00bef4, #00a2ff, #0081ff, #1256eb);
-    
+
 
 
 }
@@ -123,7 +155,7 @@ ul {
     height: auto;
     border-radius: 11px;
     background-color: #FFF;
-    
+
 }
 
 
@@ -142,7 +174,7 @@ ul {
 h3 {
     margin: 30px 0;
     text-align: center;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 p {
@@ -173,25 +205,49 @@ p {
 }
 
 footer {
+
     grid-area: footer;
-    background-color: #CCC;
+    background-color: #111;
+    max-height: 10vh;
+    padding-top: 2%;
+
+}
+
+footer p {
+    color: #EEE;
+    font-size: 1.4em;
     text-align: center;
 }
 
 
-@media (max-width: 1400px) {
-    .gallery {
+@media (max-width: 1200px) {
+    .main {
         grid-template-columns: auto auto;
     }
 }
 
 @media (max-width: 900px) {
-    .gallery {
-        grid-template-columns: auto; 
+    .main {
+        grid-template-columns: auto;
+        width: 75vw;
+    }
+
+    .sideBar {
+        width: 25vw;
     }
 
     h1 {
         font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 750px) {
+    h2 {
+        font-size: 1.1em;
     }
 }
 
@@ -203,7 +259,7 @@ footer {
         top: 0;
     }
 
-      .gallery {
+    .main {
         width: 100vw;
     }
 
@@ -218,22 +274,14 @@ footer {
     h1 {
         font-size: 1.2em;
         margin-right: 5%;
-    } 
+    }
 
     .menu {
         display: flex;
-        
-        
     }
 
-    .menu:hover ~ .toggle {
+    .menu:hover~.toggle {
         display: flex;
-        top: 100%;
-        left: 4%;
-    }
-
-    .toggle:hover {
-        display: block;
     }
 
 }
